@@ -12,7 +12,11 @@ var operation = {
 }
 
 $(".buttons").click('span', function (event){
-  var clicked = event.target.innerHTML;
+  var $target = $(event.target);
+  var clicked = $target.html();
+  if ($target.prop("tagName") === "DIV") {
+    return;
+  }
   if (clicked === 'C'){
     $($screen).html("");
     num1 = 0;
